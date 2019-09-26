@@ -14,7 +14,7 @@ namespace Gamekit2D
     
         public bool HaveControl { get { return m_HaveControl; } }
 
-        public InputButton Pause = new InputButton(KeyCode.Escape, XboxControllerButtons.Menu);
+
         public InputButton Interact = new InputButton(KeyCode.E, XboxControllerButtons.Y);
         public InputButton MeleeAttack = new InputButton(KeyCode.K, XboxControllerButtons.X);
         public InputButton RangedAttack = new InputButton(KeyCode.O, XboxControllerButtons.B);
@@ -55,7 +55,6 @@ namespace Gamekit2D
 
         protected override void GetInputs(bool fixedUpdateHappened)
         {
-            Pause.Get(fixedUpdateHappened, inputType);
             Interact.Get(fixedUpdateHappened, inputType);
             MeleeAttack.Get(fixedUpdateHappened, inputType);
             RangedAttack.Get(fixedUpdateHappened, inputType);
@@ -73,7 +72,6 @@ namespace Gamekit2D
         {
             m_HaveControl = true;
 
-            GainControl(Pause);
             GainControl(Interact);
             GainControl(MeleeAttack);
             GainControl(RangedAttack);
@@ -86,7 +84,6 @@ namespace Gamekit2D
         {
             m_HaveControl = false;
 
-            ReleaseControl(Pause, resetValues);
             ReleaseControl(Interact, resetValues);
             ReleaseControl(MeleeAttack, resetValues);
             ReleaseControl(RangedAttack, resetValues);
